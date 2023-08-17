@@ -3,39 +3,26 @@ package level2;
 import java.util.PriorityQueue;
 
 /**
- * level2
- * Lesson42626
- *
- * @author : USER
+ * https://school.programmers.co.kr/learn/courses/30/lessons/42626
  */
 public class Lesson42626 {
     public static int solution(int[] scoville, int k) {
         int answer = 0;
-        int count = 0;
+
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
         for (int s : scoville) {
-            if (s >= k) {
-                count++;
-            }
             priorityQueue.add(s);
         }
-        if (count == scoville.length) {
-            return answer;
-        }
 
+        while (priorityQueue.peek() < k) {
+            if (priorityQueue.size() == 1) { // 모든 음식의 스코빌 지수를 k 이상으로 만들 수 없는 경우
+                return -1;
+            }
 
-        while (count != priorityQueue.size()) {
-            count = 0;
             Integer min = priorityQueue.poll();
             Integer secondMin = priorityQueue.poll();
             priorityQueue.add(min + secondMin * 2);
             answer++;
-
-            for (Integer s : priorityQueue) {
-                if (s >= k) {
-                    count++;
-                }
-            }
         }
 
         return answer;
