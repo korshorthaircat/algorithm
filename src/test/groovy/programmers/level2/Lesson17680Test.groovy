@@ -1,5 +1,6 @@
-package level2
+package programmers.level2
 
+import programmers.level2.Lesson17680
 import spock.lang.Specification
 
 class Lesson17680Test extends Specification {

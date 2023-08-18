@@ -1,5 +1,6 @@
-package level2
+package programmers.level2
 
+import programmers.level2.Lesson42626
 import spock.lang.Specification
 
 /**
