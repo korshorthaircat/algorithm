@@ -32,10 +32,9 @@ public class Lesson17686 {
             fileList.add(new File(head.toUpperCase(), number, file));
         }
 
-        // todo 정렬 조건 미완성
         Collections.sort(fileList, (file1, file2) -> {
             if (file1.getHead().equals(file2.getHead())) {
-                return file1.getNumber().compareTo(file2.getNumber());
+                return Integer.parseInt(file1.getNumber()) - Integer.parseInt(file2.getNumber());
             }
             return file1.getHead().compareTo(file2.getHead());
         });
